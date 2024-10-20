@@ -10,6 +10,8 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
+    rviz_config_file = os.path.join(get_package_share_directory('learning_tf2_py'), 'rviz', 'carrot.rviz')
+    
     demo_nodes = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('learning_tf2_py'), 'launch'),
@@ -28,4 +30,17 @@ def generate_launch_description():
                             {'direction_of_rotation': 1}
             ]
         ),
+        Node(
+                    package='turtlesim',
+                    executable='turtle_teleop_key',
+                    name='turtle_teleop_key',
+                    prefix='xterm -e',
+                ),
+                Node(
+                    package='rviz2',
+                    executable='rviz2',
+                    name='rviz2',
+                    arguments=['-d', rviz_config_file],
+                    output='screen'
+                ),
     ])

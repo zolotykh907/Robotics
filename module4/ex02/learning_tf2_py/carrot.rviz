@@ -1,0 +1,32 @@
+# RViz Configuration File
+Panels: []
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Name: TF
+      Class: rviz/Tf
+      Enabled: true
+      Auto Add: true  # Этот параметр автоматически добавляет новые фреймы
+    - Name: Grid
+      Class: rviz/Grid
+      Enabled: true
+      Cell Size: 1
+      Plane: XY
+      Color: {a: 1, b: 1, g: 1, r: 1}
+      Alpha: 0.5
+    - Name: Axes
+      Class: rviz/Axes
+      Enabled: true
+      Length: 0.5
+      Radius: 0.1
+    - Name: RobotModel
+      Class: rviz/RobotModel
+      Enabled: true
+      Robot Description: robot_description
+      TF Prefix: ""
+    - Name: TF
+      Class: rviz/TF
+      Enabled: true
+      Auto Add: true  # Убедитесь, что здесь тоже включено
+  Tools: []
+  Version: 1.0
